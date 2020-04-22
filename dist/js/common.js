@@ -1,5 +1,5 @@
 $(function() {
 
-    // $('body').fadeOut(); 
+    //my function
 
 });
