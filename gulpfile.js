@@ -9,7 +9,18 @@ var gulp         = require('gulp'), // Подключаем Gulp
 	imagemin     = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
 	pngquant     = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
 	cache        = require('gulp-cache'), // Подключаем библиотеку кеширования
-	autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
+	autoprefixer = require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического добавления префиксов
+	pug          = require('gulp-pug');//подключаем Pug
+
+
+
+gulp.task('pug', function buildHTML() { // Создаем таск
+	return gulp.src('app/pug/*.pug') // Берем источник
+		.pipe(pug({       // Определяем параметры написания
+			pretty: true	   
+        }))
+        .pipe(gulp.dest('app')); // Выгружаем html в папку
+});
 
 gulp.task('sass', function() { // Создаем таск Sass
 	return gulp.src('app/sass/**/*.sass') // Берем источник
@@ -91,8 +102,9 @@ gulp.task('clear', function (callback) {
 
 gulp.task('watch', function() {
 	gulp.watch('app/sass/**/*.sass', gulp.parallel('sass')); // Наблюдение за sass файлами
+	gulp.watch('app/pug/**/*.pug', gulp.parallel('pug')); // Наблюдение за pug файлами
 	gulp.watch('app/*.html', gulp.parallel('code')); // Наблюдение за HTML файлами в корне проекта
 	gulp.watch(['app/js/common.js', 'app/libs/**/*.js'], gulp.parallel('scripts')); // Наблюдение за главным JS файлом и за библиотеками
 });
-gulp.task('default', gulp.parallel('css-libs', 'sass', 'scripts', 'browser-sync', 'watch'));
-gulp.task('build', gulp.parallel('prebuild', 'clean', 'img', 'sass', 'scripts'));
+gulp.task('default', gulp.parallel('pug', 'css-libs', 'sass', 'scripts', 'browser-sync', 'watch'));
+gulp.task('build', gulp.parallel('pug','prebuild', 'clean', 'img', 'sass', 'scripts'));
