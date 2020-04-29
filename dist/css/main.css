@@ -28,7 +28,7 @@ a, a:focus, a:hover, a:active, button:active, button:focus {
   border: none;
   padding: 0;
   margin-top: 14px;
-  margin-left: 4px;
+  margin-left: 8px;
   text-transform: uppercase;
   font-size: 15px;
   font-weight: bold;
@@ -162,14 +162,34 @@ button {
 .bg {
   background: #1b2445;
   padding: 0px;
+  opacity: 1;
 }
 
 .col-lg-3 nav {
   padding: 0;
 }
 
-.col-lg-3 button span {
-  margin-bottom: 4px;
+.col-lg-3 button .box-line {
+  vertical-align: middle;
+  width: 40px;
+  height: 33px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.col-lg-3 button a {
+  vertical-align: text-bottom;
+  margin-left: 4px;
+}
+
+.col-lg-3 button .line {
+  margin-bottom: 6px;
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 4px;
 }
 
 input::-webkit-input-placeholder {
@@ -208,6 +228,8 @@ input:-ms-input-placeholder {
 
 .col-xl-5 img {
   margin: 0 16px 5px 0;
+  width: 27px;
+  height: 26px;
 }
 
 .col-xl-5:nth-child(1) {
@@ -242,6 +264,12 @@ input:-ms-input-placeholder {
 .col-md-12 .account {
   padding-top: 34px;
   font-size: 13px;
+}
+
+.menu {
+  position: fixed;
+  width: 100%;
+  opacity: 1;
 }
 
 .menu .navbar {
@@ -315,6 +343,20 @@ input:-ms-input-placeholder {
   height: 37px;
 }
 
+.navbar-dark .navbar-toggler {
+  color: white;
+}
+
+div .dropdown-menu:hover .nav-link .dropdown {
+  color: #fff;
+}
+
+/*.icon-bar
+	height: 6px
+	width: 40px
+	background-color: #fff
+	display: block
+	border-radius: 4px*/
 @media only screen and (min-width: 768px) {
   .dropdown:hover .dropdown-menu {
     display: block;
@@ -348,11 +390,14 @@ input:-ms-input-placeholder {
     background: #404e80;
     color: #fff;
   }
+  .col-xl-7 input {
+    width: 417px;
+  }
   .col-xl-5:nth-child(1) {
     padding: 4px 0 0 0;
   }
-  .col-xl-7 input {
-    width: 417px;
+  .dropdown span {
+    color: #fff;
   }
 }
 
@@ -370,11 +415,29 @@ input:-ms-input-placeholder {
   .navbar-toggler {
     padding: .25rem 0 .25rem .75rem;
   }
+  .navbar-toggler .box-line {
+    vertical-align: middle;
+    width: 40px;
+    height: 33px;
+    display: inline-block;
+    margin-top: 6px;
+  }
+  .navbar-toggler .box-line .line {
+    margin-bottom: 6px;
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
   .col-md-12 .call {
-    margin-left: 78%;
+    margin-left: 74%;
   }
   .col-md-12 a img {
     margin: 0;
+    width: 37px;
+    height: 37px;
   }
   .col-md-12 .account a img {
     margin-right: 11px;
@@ -396,34 +459,62 @@ input:-ms-input-placeholder {
     width: 450px;
   }
   .col-sm-12 nav {
-    width: 61px;
-    height: 45px;
     display: inline-block;
+  }
+  .col-sm-12 nav div:last-child {
+    display: none;
   }
   .col-xl-5 img {
     margin: 0;
   }
+  .box-line {
+    vertical-align: middle;
+    width: 40px;
+    height: 33px;
+    display: inline-block;
+    margin-top: 6px;
+  }
+  .box-line .line {
+    margin-bottom: 6px;
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
   .col-sm-7 {
-    padding: 5% 0 0 42%;
+    padding: 2% 0 0 40%;
   }
   .mobilemenu {
-    top: -92px;
-    left: -157px;
-  }
-  .col-sm-12 nav div {
-    display: none;
+    top: -74px;
+    left: -152px;
   }
   .col-12 {
     padding: 0 0 13px 0;
+  }
+  .col-5 img {
+    width: 37px;
+    height: 37px;
+  }
+  .col-5 a {
+    margin-right: 17px;
+  }
+  .col-3 img {
+    height: 53px;
+    width: 109px;
+  }
+  .navbar-toggler {
+    padding: 0;
   }
 }
 
 @media only screen and (max-width: 575px) and (min-width: 0px) {
   .mobilemenu {
-    top: -80px;
-    left: -144px;
+    top: -75px;
+    left: -120px;
   }
-  .col-sm-12 nav div,
+  .col-sm-12 nav div:last-child,
   .col-sm-12 a span,
   .menu, .col-lg-7,
   .col-lg-3 a span,
@@ -435,12 +526,12 @@ input:-ms-input-placeholder {
   .col-xl-5:nth-child(1) {
     padding: 0;
   }
-  .col-12 input {
-    width: 59%;
-  }
   .col-12 {
     padding-right: 0;
     padding-left: 0;
+  }
+  .col-12 input {
+    width: 59%;
   }
   .row {
     margin: 0;
@@ -448,17 +539,29 @@ input:-ms-input-placeholder {
   form {
     margin: 0 5%;
   }
-  .col-3 img {
-    height: 53px;
-    width: 109px;
-  }
   .col-3 {
     margin: 0 0 0 5%;
     padding: 3% 0 0 0;
   }
-  .col-4 {
+  .col-3 img {
+    height: 53px;
+    width: 109px;
+  }
+  .col-5 {
     padding: 7% 0 0 0;
-    margin: 0 0 0 36%;
+    margin: 0 0 0 28.3%;
+  }
+  .col-5 img {
+    width: 37px;
+    height: 37px;
+    margin-right: 12px;
+  }
+  .navbar-toggler-icon {
+    width: 49px;
+    height: 52px;
+  }
+  .navbar-toggler {
+    padding: 0;
   }
 }
 

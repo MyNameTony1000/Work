@@ -351,12 +351,6 @@ div .dropdown-menu:hover .nav-link .dropdown {
   color: #fff;
 }
 
-/*.icon-bar
-	height: 6px
-	width: 40px
-	background-color: #fff
-	display: block
-	border-radius: 4px*/
 @media only screen and (min-width: 768px) {
   .dropdown:hover .dropdown-menu {
     display: block;
